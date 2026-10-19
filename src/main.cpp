@@ -105,6 +105,7 @@ class $modify(BufferLayer, GJBaseGameLayer) {
 				f->pending[idx] = s_steps - 1;
 				f->deferredRelease[idx] = false;
 				snapshot(idx);
+				log::info("[buffer] press buffered idx={} steps={}", idx, s_steps - 1);
 			}
 		}
 	}
@@ -138,11 +139,13 @@ class $modify(BufferLayer, GJBaseGameLayer) {
 			bool impulse = vy > kImpulseThreshold && (vy - prevVy) > kImpulseThreshold;
 
 			if (flipped || impulse) {
+				log::info("[buffer] consumed idx={} flipped={} vy={:.2f} prevVy={:.2f}", idx, flipped, vy, prevVy);
 				flushRelease(idx);
 				continue;
 			}
 
 			// Not consumed yet: re-fire the press for this step.
+			log::info("[buffer] replay idx={} pending={} vy={:.2f} onGround={}", idx, f->pending[idx], p->m_yVelocity, p->m_isOnGround);
 			snapshot(idx);
 			f->replaying = true;
 			this->handleButton(true, 1, idx == 0);
