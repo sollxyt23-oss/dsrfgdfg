@@ -109,7 +109,11 @@ class $modify(BufferLayer, GJBaseGameLayer) {
 		}
 	}
 
-	void processCommands(float dt) {
+	void processCommands(float dt, bool isHalfTick, bool isLastTick) {
+	if (isHalfTick) {
+		GJBaseGameLayer::processCommands(dt, isHalfTick, isLastTick);
+		return;
+	}
 		auto f = m_fields.self();
 
 		for (int idx = 0; idx < 2; ++idx) {
@@ -152,6 +156,6 @@ class $modify(BufferLayer, GJBaseGameLayer) {
 			}
 		}
 
-		GJBaseGameLayer::processCommands(dt);
+		GJBaseGameLayer::processCommands(dt, isHalfTick, isLastTick);
 	}
 };
