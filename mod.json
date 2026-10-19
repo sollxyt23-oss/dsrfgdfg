@@ -1,0 +1,27 @@
+{
+	"geode": "4.0.0",
+	"gd": {
+		"win": "2.208"
+	},
+	"version": "v0.1.0",
+	"id": "yourname.input-buffer",
+	"name": "Input Buffer",
+	"developer": "yourname",
+	"description": "Widens the classic mode input buffer so early clicks are held and fired once they become valid.",
+	"settings": {
+		"enable-buffer": {
+			"type": "bool",
+			"name": "Enable buffer",
+			"description": "Turn the extended input buffer on or off.",
+			"default": true
+		},
+		"buffer-steps": {
+			"type": "int",
+			"name": "Buffer window (steps)",
+			"description": "How many physics steps a click stays active. 1 behaves like vanilla.",
+			"default": 4,
+			"min": 1,
+			"max": 4
+		}
+	}
+}
