@@ -6,7 +6,7 @@
 	"version": "v0.1.0",
 	"id": "yourname.input-buffer",
 	"name": "Input Buffer",
-	"developer": "yourname",
+	"developer": "sollx",
 	"description": "Widens the classic mode input buffer so early clicks are held and fired once they become valid.",
 	"settings": {
 		"enable-buffer": {
