@@ -21,7 +21,7 @@
 			"description": "How many physics steps a click stays active. 1 behaves like vanilla.",
 			"default": 4,
 			"min": 1,
-			"max": 4
+			"max": 60
 		}
 	}
 }
